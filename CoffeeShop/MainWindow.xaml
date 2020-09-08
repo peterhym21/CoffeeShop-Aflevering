@@ -1,0 +1,79 @@
+﻿<Window x:Class="CoffeeShop.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CoffeeShop"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <!--#region coffe list-->
+        <ListView ItemsSource="{Binding Coffee}" Name="CarWashes" VerticalAlignment="Top" Margin="0,325,0,0" Padding="5,0,0,0" Foreground="White" Background="Transparent">
+
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid Rows="1"></UniformGrid>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+
+            <ListView.ItemTemplate >
+                <DataTemplate>
+                    <StackPanel x:Name="Stackpanel" Margin="0,-1,0,0" HorizontalAlignment="Left" VerticalAlignment="Center">
+                        <Grid x:Name="ListGrid" Margin="0,-1,0,0" HorizontalAlignment="Left" VerticalAlignment="Center">
+                            <!--#region grid definder-->
+                            <Grid.RowDefinitions >
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="200"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <!--#endregion-->
+
+                            <!--#region Car Wash outputs-->
+                            <!--<Label Grid.Column="0" Grid.Row="4" FontSize="14" Foreground="White">Carwash Id:</Label>-->
+                            <Label Grid.Column="1" Grid.Row="4" Foreground="White" Content="{Binding }" FontSize="14"></Label>
+
+                            <Label Grid.Column="1" Grid.Row="5" Foreground="White" Content="{Binding }" FontSize="14"></Label>
+
+                            <Label Grid.Column="1" Grid.Row="6" Foreground="White" Content="{Binding }" FontSize="14"></Label>
+
+                            <Label Grid.Column="1" Grid.Row="7" Foreground="White" Content="{Binding  }" FontSize="14"></Label>
+
+                            <Label Grid.Column="1" Grid.Row="8" Foreground="White" Content="{Binding}" FontSize="14"></Label>
+
+                            <Label Grid.Column="1"  Grid.Row="9" Foreground="White" Content="{Binding}" FontSize="14"></Label>
+
+                            <!--<ProgressBar Name="progressBar" Grid.Column="0" Grid.Row="10" Value="{}" Minimum="0" Maximum="99" Height="10"></ProgressBar>-->
+
+
+                            <Label Grid.Column="0" Grid.Row="12" Content="" d:IsHidden="True"/>
+                            <!--#endregion-->
+
+                        </Grid>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <!--#endregion-->
+    </Grid>
+</Window>
