@@ -30,5 +30,25 @@ namespace CoffeeShop.Pages
             CoffeeList = _coffeeList;
             InitializeComponent();
         }
+
+        private void Create(object sender, RoutedEventArgs e)
+        {
+            #region set coffee to the updates
+            Coffees.AmountInStock = Convert.ToInt32(Amount.Text);
+            Coffees.CoffeeName = Coffeename.Text;
+            Coffees.Description = Description.Text;
+            Coffees.InStock = Instock.IsEnabled;
+            Coffees.ImageId = Convert.ToInt32(imageid.Text);
+            Coffees.Price = Convert.ToInt32(price.Text);
+            #endregion
+
+            CoffeeServicess.CreateCoffe(Coffees);
+        }
+
+        private void Menu(object sender, RoutedEventArgs e)
+        {
+            AdminPanel adminPanel = new AdminPanel(Coffees, CoffeeServicess, CoffeeList);
+            NavigationService.Navigate(adminPanel);
+        }
     }
 }

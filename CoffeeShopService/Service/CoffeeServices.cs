@@ -79,6 +79,26 @@ namespace CoffeeShopService.Service
 
         }
 
+        public void CreateCoffe(Coffee coffee)
+        {
+            foreach (Coffee c in coffees)
+            {
+                if (c.CoffeeId == coffee.CoffeeId)
+                {
+                    c.AmountInStock = coffee.AmountInStock;
+                    c.CoffeeId = coffee.CoffeeId;
+                    c.CoffeeName = coffee.CoffeeName;
+                    c.Description = coffee.Description;
+                    c.FirstAddedToStockDate = coffee.FirstAddedToStockDate;
+                    c.ImageId = coffee.ImageId;
+                    c.InStock = coffee.InStock;
+                    c.OriginContry = coffee.OriginContry;
+                    c.Price = coffee.Price;
+                }
+            }
+
+        }
+
 
     }
 }
