@@ -105,7 +105,22 @@ namespace CoffeeShopService.DTO
             }
         }
 
+        public string ImagePath
+        {
+            get
+            {
+                return $"../Image/coffee{ImageId}.jpg";
+            }
+        }
+
         #endregion
+        public Coffee()
+        {
+        }
+        public Coffee(int i)
+        {
+            CoffeeId = i;
+        }
 
         #region INPC
         public event PropertyChangedEventHandler PropertyChanged;
@@ -114,6 +129,11 @@ namespace CoffeeShopService.DTO
         {
             // take a copy to prevent thread issues
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        public static implicit operator Coffee(string v)
+        {
+            throw new NotImplementedException();
         }
         #endregion
 

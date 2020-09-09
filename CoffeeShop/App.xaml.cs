@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CoffeeShopService.Service;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -13,5 +14,11 @@ namespace CoffeeShop
     /// </summary>
     public partial class App : Application
     {
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            CoffeeServices CoffeeServicess = new CoffeeServices();
+            CoffeeServicess.LoadCoffees();
+            base.OnStartup(e);
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using CoffeeShopService.DTO;
 using CoffeeShopService.Interfaces;
+using CoffeeShopService.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +11,19 @@ namespace CoffeeShopService.Service
 {
     public class CoffeeServices : ICoffeeService
     {
+        private Coffee Coffee = new Coffee();
+
+        private static List<Coffee> coffees = new List<Coffee>();
+
         public void DeleteCoffe(Coffee coffee)
         {
-            throw new NotImplementedException();
+            for (int i = 0; i < coffees.Count; i++)
+            {
+                if (i == coffee.CoffeeId)
+                {
+                    coffees.RemoveAt(i);
+                }
+            }
         }
 
         public Coffee GetCoffee()
@@ -22,23 +33,50 @@ namespace CoffeeShopService.Service
 
         public Coffee GetCoffeeById(int id)
         {
-            throw new NotImplementedException();
+            foreach (Coffee findcoffee in coffees)
+            {
+                if (id == findcoffee.CoffeeId)
+                {
+                    Coffee = findcoffee;
+                    break;
+                }
+                else
+                {
+                    Coffee = null;
+                }
+            }
+            return Coffee;
         }
 
         public List<Coffee> GetCoffees()
         {
-            throw new NotImplementedException();
+            return coffees;
         }
 
         public void LoadCoffees()
         {
-            CreateCoffees();
-            
+            CoffeeRepository coffeeRepository = new CoffeeRepository();
+            coffees = coffeeRepository.CreateCoffees();
         }
 
         public void UpdateCoffee(Coffee coffee)
         {
-            throw new NotImplementedException();
+            foreach (Coffee c in coffees)
+            {
+                if (c.CoffeeId == coffee.CoffeeId)
+                {
+                    c.AmountInStock = coffee.AmountInStock;
+                    c.CoffeeId = coffee.CoffeeId;
+                    c.CoffeeName = coffee.CoffeeName;
+                    c.Description = coffee.Description;
+                    c.FirstAddedToStockDate = coffee.FirstAddedToStockDate;
+                    c.ImageId = coffee.ImageId;
+                    c.InStock = coffee.InStock;
+                    c.OriginContry = coffee.OriginContry;
+                    c.Price = coffee.Price;
+                }
+            }
+
         }
 
 

@@ -2,9 +2,7 @@
 using CoffeeShopService.Service;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -15,20 +13,22 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace CoffeeShop
+namespace CoffeeShop.Pages
 {
-    
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for AddNewCoffee.xaml
     /// </summary>
-    public partial class MainWindow : NavigationWindow
+    public partial class AddNewCoffee : Page
     {
-        public MainWindow()
+        Coffee Coffees { get; set; }
+        public CoffeeServices CoffeeServicess { get; set; }
+        public List<Coffee> CoffeeList { get; set; }
+        public AddNewCoffee(Coffee _coffees, CoffeeServices _coffeeServicess, List<Coffee> _coffeeList)
         {
+            Coffees = _coffees;
+            CoffeeServicess = _coffeeServicess;
+            CoffeeList = _coffeeList;
             InitializeComponent();
-            ShowsNavigationUI = false;
-
         }
-
     }
 }

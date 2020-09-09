@@ -1,9 +1,8 @@
 Americanos
-Brewed Coffees
+Brewed Coffee
 Cappuccino
 Espresso
 Lattes
 Iced Salted Caramel Mocha
 Iced Coffee
 Iced Dark Chocolate Mocha
-Iced Espresso Roast Clover
